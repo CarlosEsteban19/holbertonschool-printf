@@ -20,23 +20,23 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			cnt++;
 			for (j = 0; array[j].letra != NULL; j++)
 			{
 				if (format[i + 1] == *array[j].letra)
 				{
 					ttl += array[j].f(args);
-					i++, cnt += 2;
+					i++, cnt++;
 					break;
 				}
 				else if (format[i + 1] == '%')
 				{
-					_putchar('%');
-					i++;
+					_putchar('%'), i++;
 					break;
 				}
 			}
 			if (array[j].letra == NULL && format[i + 1] != '\0')
-				_putchar('%');
+				_putchar('%'), cnt--;
 			if (array[j].letra == NULL && format[i + 1] == '\0')
 				return (-1);
 		}
