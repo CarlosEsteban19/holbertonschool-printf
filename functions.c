@@ -19,8 +19,7 @@ int _strlen(char *s)
  */
 int print_c(va_list *args)
 {
-	_putchar(va_arg(*args, int));
-	return (1);
+	return (_putchar(va_arg(*args, int)));
 }
 /**
  * print_s - prints a string
@@ -32,6 +31,8 @@ int print_s(va_list *args)
 	size_t x;
 	char *ptr = va_arg(*args, char *);
 
+	if (ptr == NULL)
+		return (write(1, "(null)", 6));
 	x = _strlen(ptr);
 	return (write(1, ptr, x));
 }
