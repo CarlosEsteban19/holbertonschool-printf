@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == *array[j].letra) /* checks character next to % */
 				{
-					ttl = array[j].f(args); /* calls function depending on character found */
+					ttl += array[j].f(args); /* calls function depending on character found */
 					i++; /* iterate to avoid printing character that follows percent symbol */
 					cnt++;
 					break;
