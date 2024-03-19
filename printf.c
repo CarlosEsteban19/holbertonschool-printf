@@ -9,13 +9,14 @@ int _printf(const char *format, ...)
 	typeofprint array[] = {
 		{"c", print_c},
 		{"s", print_s},
+		{"d", print_num},
+		{"i", print_num},
 		{NULL, NULL},
 	};
 	int i, j, ttl = 0, cnt = 0;
 	va_list args;
 
 	va_start(args, format);
-
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
