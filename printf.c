@@ -40,12 +40,15 @@ int _printf(const char *format, ...)
 				}
 			}
 			if (array[j].letra == NULL && format[i + 1] != '\0')
+			{
 				_putchar('%');
+				cnt--;
+			}
 			if (array[j].letra == NULL && format[i + 1] == '\0')
 				return (-1);
 		}
 		else
-		_putchar(format[i]);
+			_putchar(format[i]);
 	}
 	va_end(args);
 	return (ttl + (i - cnt));
