@@ -11,36 +11,37 @@ int _printf(const char *format, ...)
 		{"s", print_s},
 		{NULL, NULL},
 	};
-	int i, j, ttl;
+	int i, j, ttl = 0, cnt = 0;
 	va_list args;
 
 	va_start(args, format);
-
-	for (i = 0; format[i] != '\0'; i++) /* iterate through "format" */
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%') /* checks for percent symbol */
+		if (format[i] == '%')
 		{
-			for (j = 0; array[j].letra != NULL; j++) /* iterate through character/function array */
+			cnt++;
+			for (j = 0; array[j].letra != NULL; j++)
 			{
-				if (format[i + 1] == *array[j].letra) /* checks character next to percent symbol */
+				if (format[i + 1] == *array[j].letra)
 				{
-					ttl = array[j].f(args); /* calls function depending on character found */
-					i++; /* iterate to avoid printing character that follows percent symbol */
+					ttl += array[j].f(args);
+					i++, cnt++;
 					break;
 				}
-				else if (format[i + 1] == '%') /* prints single % when %% is found */
+				else if (format[i + 1] == '%')
 				{
-					_putchar('%');
-					i++;
+					_putchar('%'), i++;
 					break;
 				}
 			}
-			if (array[j].letra == NULL) /* prints % when unkown format spec */
-				_putchar('%');
+			if (array[j].letra == NULL && format[i + 1] != '\0')
+				_putchar(format[i]), cnt--;
+			else if (array[j].letra == NULL && format[i + 1] == '\0')
+				return (-1);
 		}
 		else
-		_putchar(format[i]); /* printing current character */
+		_putchar(format[i]);
 	}
 	va_end(args);
-	return (ttl + i);
+	return (ttl + (i - cnt));
 }
