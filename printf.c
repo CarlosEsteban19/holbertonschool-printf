@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	};
 	int i, j;
 	int ttl = 0;
+	int cnt = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -21,18 +22,21 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%') /* checks for percent symbol */
 		{
+			cnt++;
 			for (j = 0; array[j].letra != NULL; j++) /* iterate char/func array */
 			{
 				if (format[i + 1] == *array[j].letra) /* checks character next to % */
 				{
 					ttl = array[j].f(args); /* calls function depending on character found */
 					i++; /* iterate to avoid printing character that follows percent symbol */
+					cnt++;
 					break;
 				}
 				else if (format[i + 1] == '%') /* prints single % when %% is found */
 				{
 					_putchar('%');
 					i++;
+					cnt++;
 					break;
 				}
 			}
@@ -43,5 +47,5 @@ int _printf(const char *format, ...)
 		_putchar(format[i]); /* printing current character */
 	}
 	va_end(args);
-	return (ttl + i);
+	return (ttl + (i - cnt));
 }
