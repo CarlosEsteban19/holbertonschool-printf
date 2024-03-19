@@ -36,3 +36,36 @@ int print_s(va_list *args)
 	x = _strlen(ptr);
 	return (write(1, ptr, x));
 }
+int print_num(va_list *args)
+{
+	int divide = 1;
+	int zeros = 1;
+	int num;
+	int n = va_arg(*args, int);
+
+	if (n == 0)
+	{
+		return _putchar('0');
+	}
+	if (n < 0)
+	{
+		_putchar('-');
+		n = -n;
+	}
+	while (n / divide > 9)
+	{
+		divide *= 10;
+	}
+	while (divide >= 1)
+	{
+		num = (n / divide) % 10;
+
+		if (num != 0 || !zeros)
+		{
+			_putchar(num + '0');
+			zeros = 0;
+		}
+		divide /= 10;
+	}
+	return (n);
+}
