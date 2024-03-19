@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * _printf - prints output
- * @format: character string
- * Return: int
+ * _printf - prints to stdout given information
+ * @format: string with arg references
+ * Return: int amount of characters (Success)
  */
 int _printf(const char *format, ...)
 {
@@ -27,8 +27,17 @@ int _printf(const char *format, ...)
 				{
 					ttl = array[j].f(args);
 					i++;
+					break;
+				}
+				else if (format[i + 1] == '%')
+				{
+					_putchar('%');
+					i++;
+					break;
 				}
 			}
+			if (array[j].letra == NULL)
+				_putchar('%');
 		}
 		else
 			_putchar(format[i]);
