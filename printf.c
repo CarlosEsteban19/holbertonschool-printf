@@ -36,7 +36,6 @@ int _printf(const char *format, ...)
 				{
 					_putchar('%');
 					i++;
-					cnt++;
 					break;
 				}
 			}
