@@ -11,9 +11,7 @@ int _printf(const char *format, ...)
 		{"s", print_s},
 		{NULL, NULL},
 	};
-	int i, j;
-	int ttl = 0;
-	int cnt = 0;
+	int i, j, ttl = 0, cnt = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -22,14 +20,12 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			cnt++;
 			for (j = 0; array[j].letra != NULL; j++)
 			{
 				if (format[i + 1] == *array[j].letra)
 				{
 					ttl += array[j].f(args);
-					i++;
-					cnt++;
+					i++, cnt += 2;
 					break;
 				}
 				else if (format[i + 1] == '%')
@@ -40,10 +36,7 @@ int _printf(const char *format, ...)
 				}
 			}
 			if (array[j].letra == NULL && format[i + 1] != '\0')
-			{
 				_putchar('%');
-				cnt--;
-			}
 			if (array[j].letra == NULL && format[i + 1] == '\0')
 				return (-1);
 		}
