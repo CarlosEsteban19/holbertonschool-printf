@@ -9,6 +9,8 @@ int _printf(const char *format, ...)
 	typeofprint array[] = {
 		{"c", print_c},
 		{"s", print_s},
+		{"d", print_num},
+		{"i", print_num},
 		{NULL, NULL},
 	};
 	int i, j, ttl = 0, cnt = 0;
