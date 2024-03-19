@@ -1,14 +1,19 @@
 #include "main.h"
 #include <stdio.h>
+#include <string.h>
 #include <stdarg.h>
 #include <unistd.h>
-void print_c(va_list *args)
+int print_c(va_list *args)
 {
-	_putchar(va_arg(*args, int)); /* print c is working fine */
+	return (_putchar(va_arg(*args, int)));
 }
-void print_s(va_list *args)
+int print_s(va_list *args)
 {
-	printf("%s", va_arg(*args, char *)); /* print s is printing outside [brackets] when testing */
+	size_t x;
+	char *ptr = va_arg(*args, char *);
+
+	x = strlen(ptr);
+	return (write(1, ptr, x));
 }
 /**
  * _printf - prints output
@@ -37,8 +42,17 @@ int _printf(const char *format, ...)
 				{
 					array[j].f(args); /* calls function depending on character found */
 					i++; /* iterate to avoid printing character that follows percent symbol */
+					break;
+				}
+				else if (format[i + 1] == '%') /* prints single % when %% is found */
+				{
+					_putchar('%');
+					i++;
+					break;
 				}
 			}
+			if (array[j].letra == NULL) /* prints % when unkown format spec */
+				_putchar('%');
 		}
 		else
 		_putchar(format[i]); /* printing current character */
