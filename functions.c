@@ -36,6 +36,11 @@ int print_s(va_list *args)
 	x = _strlen(ptr);
 	return (write(1, ptr, x));
 }
+/**
+ * print_num - prints a number
+ * @args: arguments
+ * Return: number
+ */
 int print_num(va_list *args)
 {
 	int divide = 1;
