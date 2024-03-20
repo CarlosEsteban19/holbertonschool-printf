@@ -56,7 +56,7 @@ int print_num(va_list *args)
 {
 	int n;
 	unsigned int num, div, zeros = 1, len = 0;
-		
+
 	n = va_arg(*args, int);
 
 	if (n < 0)
