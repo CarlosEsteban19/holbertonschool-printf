@@ -43,8 +43,8 @@ int print_s(va_list *args)
  */
 int print_num(va_list *args)
 {
-	int zeros = 1, len = 0;
-	int n, num, div;
+	int n;
+	unsigned int num, div, zeros = 1, len = 0;
 		
 	n = va_arg(*args, int);
 
