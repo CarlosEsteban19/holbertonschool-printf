@@ -1,66 +1,56 @@
-.TH MYCOMMAND 20 "March 2024" "Version 1.0" "My Command Manual"
+.TH man_3_printf  "March 2024" "Version 1.0"
 
 .SH NAME
 printf - Transports data from memory to screen
 
 .SH SYNOPSIS
-.B mycommand
-[\fIOPTIONS\fR]
-[\fIARGUMENTS\fR]
+
+.B #include "main.h"
+.PP
+.B _printf FORMAT [ARGUMENTS]...
+.PP
+.B _printf [OPTIONS]
 
 .SH DESCRIPTION
-The printf function is used to format and display data on the standard output, which usually is the console screen. It takes a format string as its first argument, followed by a variable list of arguments that correspond to the placeholders in the format string.
+The _printf function is used to format and display data on the standard output. It takes a format string as its first argument, followed by a variable list of arguments that correspond to the coversion specifiers in the format string.
 
 .SH OPTIONS
-.TP
-\fB-a, --option-a\fR
-Description of option a.
 
-.TP
-\fB-b, --option-b\fR
-Description of option b.
+.RS
+
+.nf
+
+- %c - prints a single character
+- %s - prints the argument as a string
+- %d / %i - prints prints signed decimal integer
+- %% - prints single percent sign
 
 .SH EXAMPLES
-\fBmycommand -a arg1 -b arg2\fR
-
-#include <stdio.h>
-
-int main() {
-    int num = 10;
-    printf("The number is: %d\n", num);
-    return 0;
-}
-
-.SH NOTES
-Any additional notes or information.
+.PP
+#include "main.h"
+.PP
+ _printf("The number is: %d\n", 10);
+.PP
+Output: The number is: 10
+.PP
+_printf("Character: %c\n", 'H');
+.PP
+Output: Character: H
+.PP
+_printf("I am a %s\n", "String");
+.PP
+Output: I am a String
+.PP
+_printf("I need a better %%\n");
+.PP
+Output: I need a better %
 
 .SH BUGS
 Currently, there are no significant issues known with the command. However, there may be some limitations that could affect its operation in certain scenarios:
-
-1. [Description of problem or limitation 1]
-   - [Additional details if necessary]
-   - [Possible impact on command usage]
-
-2. [Description of problem or limitation 2]
-   - [Additional details if necessary]
-   - [Possible impact on command usage]
-
-3. [Description of problem or limitation 3]
-   - [Additional details if necessary]
-   - [Possible impact on command usage]
-
-.SH CONFIGURATION
-Configuration options.
-
-.SH CONTACT
-ig@yonomellamoCharlie
-
-.SH EXIT STATUS
-Explanation of exit status codes.
 
 .SH HISTORY
 "version 1.0"
 
 .SH AUTHOR
-Carlos E. Colon, Gadiel A. Rivera Mercado Juan Jose Mendes Jr
+Carlos E. Colon, Gadiel A. Rivera Mercado, Juan Jose Mendez Torres Jr
 
