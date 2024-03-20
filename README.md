@@ -16,7 +16,7 @@ This project implements a simplified version of the printf function in the progr
 
     functions.c
 
-2. use on wanted files or compile using gcc -o print_f to write on terminal
+2. Use fuction on needed programs or compile using gcc -o print_f to write on terminal
 
 ## Test
 #include "main.h"
