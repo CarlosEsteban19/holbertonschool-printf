@@ -5,20 +5,25 @@ This project implements a simplified version of the printf function in the progr
 
 ## Functions
 - Fuction produces output according to a format.
-- Supports basic format specifiers such as '%d', '%s', '%c' '%i'
+- Supports basic format specifiers such as '%d', '%s', '%c', '%i'
 
-
+##  How to run
 1. Download the following files:
+
     main.h
+
     printf.c
+
     functions.c
 
 2. use on wanted files or compile using gcc -o print_f to write on terminal
 
-## test
+## Test
 #include "main.h"
 
-int main() {
+int main()
+{
+
     _printf("Hello, world!\n");
 
     _printf("This is an integer: %d\n", 42);
@@ -28,8 +33,10 @@ int main() {
     return 0;
 }
 
-## credits
+## Credits
 
 github.com/CarlosEsteban19
+
 github.com/jrjuanj01
+
 github.com/Gadiel02
