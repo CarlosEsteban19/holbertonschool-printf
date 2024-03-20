@@ -14,7 +14,7 @@ int _strlen(char *s)
 }
 /**
  * print_c - prints a single character
- * @args: char to be printed
+ * @args: char argument
  * Return: int chars printed (Success)
  */
 int print_c(va_list *args)
@@ -23,7 +23,7 @@ int print_c(va_list *args)
 }
 /**
  * print_s - prints a string
- * @args: string to be printed
+ * @args: string argument
  * Return: int chars printed (Success)
  */
 int print_s(va_list *args)
@@ -38,39 +38,34 @@ int print_s(va_list *args)
 }
 /**
  * print_num - prints a number
- * @args: arguments
- * Return: number
+ * @args: int argument
+ * Return: lenght of number
  */
 int print_num(va_list *args)
 {
-	int divide = 1;
-	int zeros = 1;
-	int num;
-	int n = va_arg(*args, int);
+	int zeros = 1, len = 0;
+	int n, num, div;
+		
+	n = va_arg(*args, int);
 
-	if (n == 0)
-	{
-		return _putchar('0');
-	}
 	if (n < 0)
 	{
-		_putchar('-');
-		n = -n;
+		len += _putchar('-');
+		num = -n;
 	}
-	while (n / divide > 9)
-	{
-		divide *= 10;
-	}
-	while (divide >= 1)
-	{
-		num = (n / divide) % 10;
+	else
+		num = n;
 
-		if (num != 0 || !zeros)
-		{
-			_putchar(num + '0');
-			zeros = 0;
-		}
-		divide /= 10;
+	div = num;
+	while (div > 9)
+	{
+		div /= 10;
+		zeros *= 10;
 	}
-	return (n);
+	while (zeros >= 1)
+	{
+		len += _putchar(((num / zeros) % 10) + '0');
+		zeros = zeros / 10;
+	}
+	return (len);
 }
