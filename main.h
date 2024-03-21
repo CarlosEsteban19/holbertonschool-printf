@@ -13,6 +13,11 @@ int print_num(va_list *args);
 int print_rot(va_list *args);
 int print_r(va_list *args);
 
+/**
+ * struct letras - structure of print function types
+ * @letra: char that identifies the type of print to be used
+ * @f: print function to be used
+ */
 typedef struct letras
 {
 char *letra;

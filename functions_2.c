@@ -16,7 +16,7 @@ int print_r(va_list *args)
 	return (len1);
 }
 /**
- * print_R - Prints the rot13'ed of a string
+ * print_rot - Prints the rot13'ed of a string
  * @args: string being evaluated
  * Return: lenght of string
  */
