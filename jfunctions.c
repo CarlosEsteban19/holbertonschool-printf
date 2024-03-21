@@ -3,6 +3,17 @@
 #include <stdarg.h>
 #include <unistd.h>
 /**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+/**
  * _strlen - Calculates the length of the string
  * @s: The stirng being measured
  * Return: int (Success)
@@ -11,23 +22,23 @@ int _strlen(char *s)
 {
 	int l;
 
-	for (l = 0; s[l] != '\0'; l++)
+	for (l = 0; s[l] !=
+ '\0'; l++)
 	{}
 	return (l);
 }
 /**
  * print_c - prints a single character
- * @args: char to be printed
+ * @args: char argument
  * Return: int chars printed (Success)
  */
 int print_c(va_list *args)
 {
-	_putchar(va_arg(*args, int));
-	return (1);
+	return (_putchar(va_arg(*args, int)));
 }
 /**
  * print_s - prints a string
- * @args: string to be printed
+ * @args: string argument
  * Return: int chars printed (Success)
  */
 int print_s(va_list *args)
@@ -35,6 +46,42 @@ int print_s(va_list *args)
 	size_t x;
 	char *ptr = va_arg(*args, char *);
 
+	if (ptr == NULL)
+		return (write(1, "(null)", 6));
 	x = _strlen(ptr);
 	return (write(1, ptr, x));
 }
+/**
+ * print_num - prints a number
+ * @args: int argument
+ * Return: lenght of number
+ */
+int print_num(va_list *args)
+{
+	int n;
+	unsigned int num, div, zeros = 1, len = 0;
+
+	n = va_arg(*args, int);
+
+	if (n < 0)
+	{
+		len += _putchar('-');
+		num = -n;
+	}
+	else
+		num = n;
+
+	div = num;
+	while (div > 9)
+	{
+		div /= 10;
+		zeros *= 10;
+	}
+	while (zeros >= 1)
+	{
+		len += _putchar(((num / zeros) % 10) + '0');
+		zeros = zeros / 10;
+	}
+	return (len);
+}
+

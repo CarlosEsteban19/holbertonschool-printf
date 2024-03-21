@@ -7,6 +7,8 @@ int _putchar(char c);
 int _strlen(char *s);
 int print_c(va_list *args);
 int print_s(va_list *args);
+int print_num(va_list *args);
+int print_r(va_list *args);
 
 typedef struct letras
 {

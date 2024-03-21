@@ -9,39 +9,42 @@ int _printf(const char *format, ...)
 	typeofprint array[] = {
 		{"c", print_c},
 		{"s", print_s},
+		{"d", print_num},
+		{"i", print_num},
+		{"r", print_r},
 		{NULL, NULL},
 	};
-	int i, j;
-	int ttl = 0;
+	int i, j, ttl = 0, cnt = 0;
 	va_list args;
 
 	va_start(args, format);
-
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
+			cnt++;
 			for (j = 0; array[j].letra != NULL; j++)
 			{
 				if (format[i + 1] == *array[j].letra)
 				{
-					ttl = array[j].f(args);
-					i++;
+					ttl += array[j].f(args);
+					i++, cnt++;
 					break;
 				}
 				else if (format[i + 1] == '%')
 				{
-					_putchar('%');
-					i++;
+					_putchar('%'), i++;
 					break;
 				}
 			}
-			if (array[j].letra == NULL)
-				_putchar('%');
+			if (array[j].letra == NULL && format[i + 1] != '\0')
+				_putchar('%'), cnt--;
+			if (array[j].letra == NULL && format[i + 1] == '\0')
+				return (-1);
 		}
 		else
 			_putchar(format[i]);
 	}
 	va_end(args);
-	return (ttl + i);
+	return (ttl + (i - cnt));
 }
