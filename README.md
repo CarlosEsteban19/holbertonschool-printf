@@ -29,8 +29,8 @@ int main()
 
 ## Credits
 
-[Carlos Esteban](www.github.com/CarlosEsteban19)
+[Carlos Esteban](https://github.com/CarlosEsteban19)
 
-[Juan J Mendez Torres Jr](www.github.com/jrjuanj01)
+[Juan J Mendez Torres Jr](https://github.com/jrjuanj01)
 
-[Gadiel Rivera](github.com/Gadiel02)
+[Gadiel Rivera](https://github.com/Gadiel02)
