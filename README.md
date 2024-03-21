@@ -8,13 +8,7 @@ This project implements a simplified version of the printf function in the progr
 - Supports basic format specifiers such as '%d', '%s', '%c', '%i'
 
 ##  How to run
-1. Download the following files:
-
-    main.h
-
-    printf.c
-
-    functions.c
+1. Download the repository using git clone https://github.com/CarlosEsteban19/holbertonschool-printf.git
 
 2. Use fuction on needed programs or compile using gcc -o print_f to write on terminal
 
@@ -35,8 +29,8 @@ int main()
 
 ## Credits
 
-github.com/CarlosEsteban19
+[Carlos Esteban](www.github.com/CarlosEsteban19)
 
-github.com/jrjuanj01
+[Juan J Mendez Torres Jr](www.github.com/jrjuanj01)
 
-github.com/Gadiel02
+[Gadiel Rivera](github.com/Gadiel02)
