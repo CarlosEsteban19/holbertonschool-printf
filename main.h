@@ -12,6 +12,7 @@ int print_s(va_list *args);
 int print_num(va_list *args);
 int print_rot(va_list *args);
 int print_r(va_list *args);
+int print_u(va_list *args);
 
 /**
  * struct letras - structure of print function types
