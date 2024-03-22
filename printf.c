@@ -7,7 +7,7 @@
 int _printf(const char *format, ...)
 {
 	typeofprint array[] = {
-		{"c", print_c}, {"s", print_s}, {"d", print_num},
+		{"c", print_c}, {"s", print_s}, {"d", print_num}, {"u", print_u},
 		{"i", print_num}, {"r", print_r}, {"R", print_rot},
 		{NULL, NULL},
 	};
