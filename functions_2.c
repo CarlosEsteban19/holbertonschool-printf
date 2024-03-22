@@ -65,3 +65,26 @@ int print_u(va_list *args)
         }
         return (len);
 }
+/**
+ * print_b - prints given number in binary
+ * @args: number to convert
+ * Return: int length
+ */
+int print_b(va_list *args)
+{
+        int r, len, idx, n;
+        int array[8];
+
+        n = va_arg(*args, int);
+
+        for(idx = 0; n > 0; idx++)
+        {
+                r = n % 2;
+                n /= 2;
+                array[idx] = r;
+        }
+        len = idx;
+        for(--idx; idx >= 0; idx--)
+                 _putchar(array[idx] + '0');
+        return (len);
+}
