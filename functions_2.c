@@ -1,4 +1,4 @@
-#include "main.h"
+ZZ#include "main.h"
 /**
  * print_r - Prints the reverse of a string
  * @args: string being evaluated
@@ -37,4 +37,31 @@ int print_rot(va_list *args)
 			_putchar(s[size]);
 	}
 	return (size);
+}
+/**
+ * print_u - prints a number without it's sign
+ * @args: unsigned int argument
+ * Return: lenght of number
+ */
+int print_u(va_list *args)
+{
+        int n;
+        unsigned int num, div, zeros = 1, len = 0;
+
+        n = va_arg(*args, int);
+
+        num = n;
+
+        div = num;
+        while (div > 9)
+        {
+                div /= 10;
+                zeros *= 10;
+        }
+        while (zeros >= 1)
+        {
+                len += _putchar(((num / zeros) % 10) + '0');
+                zeros = zeros / 10;
+        }
+        return (len);
 }
