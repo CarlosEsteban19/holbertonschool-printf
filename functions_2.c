@@ -33,6 +33,8 @@ int print_rot(va_list *args)
 		else if ((s[size] >= 'n' && s[size] <= 'z')
 				|| (s[size] >= 'N' && s[size] <= 'Z'))
 			_putchar(s[size] - 13);
+		else
+			_putchar(s[size]);
 	}
 	return (size);
 }
