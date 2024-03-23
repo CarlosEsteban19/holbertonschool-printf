@@ -73,7 +73,7 @@ int print_u(va_list *args)
 int print_b(va_list *args)
 {
         int r, len, idx, n;
-        int array[16];
+        int array[32];
 
         n = va_arg(*args, int);
 
