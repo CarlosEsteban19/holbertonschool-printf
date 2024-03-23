@@ -76,6 +76,9 @@ int print_b(va_list *args)
         int array[32];
 
         n = va_arg(*args, int);
+								
+								if (n < 0)
+									n = -n;
 
         for(idx = 0; n > 0; idx++)
         {
